@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RehabFit 2025 - 온라인 재활 운동 플랫폼</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: url('https://picsum.photos/id/1011/1600/400') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      flex-direction: column;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .cta-button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .video-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media(min-width: 600px) {
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .product-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .product-item {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .product-item img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product-item h4 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #28a745;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-content img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .popup-content .close {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .floating-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0077cc;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #eee;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RehabFit 2025</h1>
+    <p>AI 기반 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
+    <a href="#videos" class="cta-button">무료 강의 보기</a>
+  </header>
+
+  <section id="videos">
+    <h2>대표 강의 미리보기</h2>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe>
+    </div>
+  </section>
+
+  <section class="products">
+    <h2>전문 재활 운동 키트</h2>
+    <div class="product-grid">
+      <div class="product-item" onclick="showPopup('kit1')">
+        <img src="https://picsum.photos/300/200?random=1" alt="밴드 키트">
+        <h4>재활 밴드 키트</h4>
+      </div>
+      <div class="product-item" onclick="showPopup('kit2')">
+        <img src="https://picsum.photos/300/200?random=2" alt="튜브 키트">
+        <h4>상체 근력 튜브</h4>
+      </div>
+    </div>
+  </section>
+
+  <div id="kit1" class="popup" onclick="closePopup()">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <img src="https://picsum.photos/500/300?random=1" alt="밴드 키트">
+      <p>다리 근육 회복에 효과적인 밴드 키트입니다.</p>
+      <a href="#" class="buy-button">구매하기</a>
+    </div>
+  </div>
+
+  <div id="kit2" class="popup" onclick="closePopup()">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <img src="https://picsum.photos/500/300?random=2" alt="튜브 키트">
+      <p>어깨와 팔 근육 재활에 적합한 튜브 기구입니다.</p>
+      <a href="#" class="buy-button">구매하기</a>
+    </div>
+  </div>
+
+  <a href="https://pf.kakao.com/_YOURID" class="floating-chat">💬 상담하기</a>
+
+  <footer>
+    &copy; 2025 RehabFit 재활 운동 플랫폼. All rights reserved.
+  </footer>
+
+  <script>
+    function showPopup(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closePopup() {
+      document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+    }
+  </script>
+</body>
+</html>
