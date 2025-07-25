@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RehabFit 2025 - 온라인 재활 운동 플랫폼</title>
+  <title>RehabFit 2025 - 재활 운동의 메카 <br>
+  Mecca of Rehabilitation</title>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -14,7 +16,6 @@
     }
 
     header {
-      background: url('https://picsum.photos/id/1011/1600/400') center/cover no-repeat;
       height: 60vh;
       display: flex;
       align-items: center;
@@ -22,16 +23,21 @@
       text-align: center;
       color: white;
       flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
     }
 
     header h1 {
       font-size: 3rem;
       margin: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
 
     header p {
       font-size: 1.2rem;
       margin-top: 1rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .cta-button {
@@ -70,12 +76,12 @@
       border: none;
     }
 
-    .product-grid {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
 
     .product-item {
       background: white;
@@ -94,16 +100,6 @@
 
     .product-item h4 {
       margin: 1rem 0 0.5rem;
-    }
-
-    .buy-button {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background: #28a745;
-      color: white;
-      padding: 0.5rem 1.2rem;
-      border-radius: 5px;
-      text-decoration: none;
     }
 
     .popup {
@@ -138,6 +134,10 @@
       cursor: pointer;
     }
 
+    .paypal-button-container {
+      margin-top: 1rem;
+    }
+
     .floating-chat {
       position: fixed;
       bottom: 20px;
@@ -161,65 +161,186 @@
   </style>
 </head>
 <body>
-  <header>
+  <header id="header">
     <h1>RehabFit 2025</h1>
-    <p>AI 기반 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
+    <p> 재활 운동 · 전문가 영상 강의 · 집에서 시작하는 건강 회복</p>
     <a href="#videos" class="cta-button">무료 강의 보기</a>
   </header>
 
   <section id="videos">
-    <h2>대표 강의 미리보기</h2>
+    <h2>재활 대표 강의 미리보기</h2>
     <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID1"></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID2"></iframe>
+      <iframe src="https://www.youtube.com/embed/23B_a_TjcOs" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/iZULzSjIItw" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/XPnDr8xCRF8"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/EMvSBOhxXwE"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/p5duolb0-Ic"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/jB_h42_s5HM"  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
     </div>
+  </section>
+
+  <section id="company">
+    <h2>RehabFit 소개</h2>
+    <p style="text-align: center; max-width: 1000px; margin: auto; line-height: 2.0;">
+      RehabFit는 AI 기술을 접목한 온라인 재활 운동 플랫폼입니다.<br>
+      집에서도 전문가의 운동 지도를 받을 수 있도록 고품질 영상 강의와 재활 키트를 제공합니다.<br>
+      근골격계 회복, 만성 통증 완화, 자세 교정 등 다양한 목적에 맞춘 솔루션을 통해 건강한 삶을 지원합니다.<br>
+      다양한 제품들과 강의 소개로, 재활의 모든것에 대해 알려드립니다.
+    </p>
   </section>
 
   <section class="products">
     <h2>전문 재활 운동 키트</h2>
     <div class="product-grid">
       <div class="product-item" onclick="showPopup('kit1')">
-        <img src="https://picsum.photos/300/200?random=1" alt="밴드 키트">
-        <h4>재활 밴드 키트</h4>
+        <img src="https://m.media-amazon.com/images/I/71lOmmWJ+7L._AC_SY300_SX300_.jpg" alt="Nasal Strips">
+        <h4>Nasal Strips</h4>
       </div>
       <div class="product-item" onclick="showPopup('kit2')">
-        <img src="https://picsum.photos/300/200?random=2" alt="튜브 키트">
-        <h4>상체 근력 튜브</h4>
+        <img src="https://m.media-amazon.com/images/I/61fAAU0aZlL._AC_SL1200_.jpg" alt="Nasal Strips">
+        <h4>Nasal Strips</h4>
+      </div>
+      <div class="product-item" onclick="showPopup('kit3')">
+        <img src="https://m.media-amazon.com/images/I/61NOb3anKHL._AC_SL1200_.jpg" alt="Nasal Strips">
+        <h4>Nasal Strips</h4>
       </div>
     </div>
   </section>
 
   <div id="kit1" class="popup" onclick="closePopup()">
-    <div class="popup-content">
-      <span class="close">&times;</span>
-      <img src="https://picsum.photos/500/300?random=1" alt="밴드 키트">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://m.media-amazon.com/images/I/71lOmmWJ+7L._AC_SY300_SX300_.jpg" alt="밴드 키트">
       <p>다리 근육 회복에 효과적인 밴드 키트입니다.</p>
-      <a href="#" class="buy-button">구매하기</a>
+      <div id="paypal-button-kit1" class="paypal-button-container"></div>
     </div>
   </div>
 
   <div id="kit2" class="popup" onclick="closePopup()">
-    <div class="popup-content">
-      <span class="close">&times;</span>
-      <img src="https://picsum.photos/500/300?random=2" alt="튜브 키트">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://m.media-amazon.com/images/I/61fAAU0aZlL._AC_SL1200_.jpg" alt="튜브 키트">
       <p>어깨와 팔 근육 재활에 적합한 튜브 기구입니다.</p>
-      <a href="#" class="buy-button">구매하기</a>
+      <div id="paypal-button-kit2" class="paypal-button-container"></div>
     </div>
   </div>
 
-  <a href="https://pf.kakao.com/_YOURID" class="floating-chat">💬 상담하기</a>
+  <div id="kit3" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://m.media-amazon.com/images/I/61NOb3anKHL._AC_SL1200_.jpg" alt="Nasal Strips">
+      <p>전신 회복에 도움을 주는 호흡 보조 키트입니다.</p>
+      <div id="paypal-button-kit3" class="paypal-button-container"></div>
+    </div>
+  </div>
 
+  <a href="https://pf.kakao.com/_Jujubae1" class="floating-chat">💬 상담하기</a>
+<section id="product-description">
+  <h2>비강 확장기의 효과</h2>
+  <p style="max-width: 800px; margin: auto; line-height: 1.6; text-align: center;">
+    비강 확장기는 코 안쪽 또는 바깥쪽에 장착하여 공기의 흐름을 원활하게 해주는 보조 기기입니다.<br><br>
+
+     <strong>실용적 효과</strong>:  <br>
+    - 수면 중 코막힘 개선 → 코골이 완화  <br>
+    - 운동 중 호흡 효율 증가 → 지구력 향상  <br>
+    - 알레르기, 비염 등으로 인한 호흡 곤란 감소  <br><br>
+
+     <strong>미용적 효과</strong>:  <br>
+    - 비강이 확장되면 코의 형태가 더 곧고 정돈되어 보이게 함  <br>
+    - 장시간 사용 시 얼굴 중심의 밸런스를 개선하는 데 도움  <br>
+    - 마스크 속에서도 코 라인이 살아나는 효과  <br><br>
+
+    사용이 간편하고 피부 자극이 적은 소재로 제작되어 일상 생활에서도 부담 없이 사용할 수 있습니다.<br>
+  </p>
   <footer>
     &copy; 2025 RehabFit 재활 운동 플랫폼. All rights reserved.
   </footer>
 
   <script>
+    const header = document.getElementById('header');
+    const images = [
+      'https://picsum.photos/id/1011/1600/400',
+      'https://picsum.photos/id/1015/1600/400',
+      'https://picsum.photos/id/1025/1600/400'
+    ];
+    let currentIndex = 0;
+    function changeHeaderBackground() {
+      header.style.backgroundImage = `url('${images[currentIndex]}')`;
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+    changeHeaderBackground();
+    setInterval(changeHeaderBackground, 2500);
+
     function showPopup(id) {
       document.getElementById(id).style.display = 'flex';
     }
+
     function closePopup() {
       document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
     }
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "재활 밴드 키트",
+            amount: { value: '29.99' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('결제가 완료되었습니다. 감사합니다, ' + details.payer.name.given_name + '님!');
+        });
+      }
+    }).render('#paypal-button-kit1');
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "상체 근력 튜브",
+            amount: { value: '39.99' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('결제가 완료되었습니다. 감사합니다, ' + details.payer.name.given_name + '님!');
+        });
+      }
+    }).render('#paypal-button-kit2');
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "호흡 보조 키트",
+            amount: { value: '19.99' }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('결제가 완료되었습니다. 감사합니다, ' + details.payer.name.given_name + '님!');
+        });
+      }
+    }).render('#paypal-button-kit3');
   </script>
+
+</section>
+
 </body>
 </html>
